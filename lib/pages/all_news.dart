@@ -15,7 +15,9 @@ class AllNews extends StatefulWidget {
 }
 
 class _AllNewsState extends State<AllNews> {
-  List<sliderModel> sliders = [];
+  final bool _loading = false;
+
+  List<SliderModel> sliders = [];
   List<ArticleModel> articles = [];
   @override
   void initState() {
@@ -50,31 +52,34 @@ class _AllNewsState extends State<AllNews> {
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10.0),
-        child: ListView.builder(
-            shrinkWrap: true,
-            physics: const ClampingScrollPhysics(),
-            itemCount:
-                widget.news == "Breaking" ? sliders.length : articles.length,
-            itemBuilder: (context, index) {
-              print(articles.length);
-              print(sliders.length);
-              return AllNewsSection(
-                  image: widget.news == "Breaking"
-                      ? sliders[index].urlToImage!
-                      : articles[index].urlToImage!,
-                  desc: widget.news == "Breaking"
-                      ? sliders[index].description!
-                      : articles[index].description!,
-                  title: widget.news == "Breaking"
-                      ? sliders[index].title!
-                      : articles[index].title!,
-                  url: widget.news == "Breaking"
-                      ? sliders[index].url!
-                      : articles[index].url!);
-            }),
-      ),
+      body: _loading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: const ClampingScrollPhysics(),
+                  itemCount: widget.news == "Breaking"
+                      ? sliders.length
+                      : articles.length,
+                  itemBuilder: (context, index) {
+                    return AllNewsSection(
+                        image: widget.news == "Breaking"
+                            ? sliders[index].urlToImage!
+                            : articles[index].urlToImage!,
+                        desc: widget.news == "Breaking"
+                            ? sliders[index].description!
+                            : articles[index].description!,
+                        title: widget.news == "Breaking"
+                            ? sliders[index].title!
+                            : articles[index].title!,
+                        url: widget.news == "Breaking"
+                            ? sliders[index].url!
+                            : articles[index].url!);
+                  }),
+            ),
     );
   }
 }

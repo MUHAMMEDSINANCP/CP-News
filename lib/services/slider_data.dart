@@ -4,7 +4,7 @@ import 'package:cp_news/models/slider_model.dart';
 import 'package:http/http.dart' as http;
 
 class Sliders {
-  List<sliderModel> sliders = [];
+  List<SliderModel> sliders = [];
 
   Future<void> getSlider() async {
     String url =
@@ -16,7 +16,7 @@ class Sliders {
     if (jsonData['status'] == 'ok') {
       jsonData["articles"].forEach((element) {
         if (element["urlToImage"] != null && element['description'] != null) {
-          sliderModel slidermodel = sliderModel(
+          SliderModel slidermodel = SliderModel(
             title: element["title"],
             description: element["description"],
             url: element["url"],

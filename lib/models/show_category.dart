@@ -1,5 +1,4 @@
-class ShowCategoryModel{
-
+class ShowCategoryModel {
   String? author;
   String? title;
   String? description;
@@ -7,5 +6,11 @@ class ShowCategoryModel{
   String? urlToImage;
   String? content;
 
-  ShowCategoryModel({this.author, this.content, this.description, this.title, this.url, this.urlToImage});
+  ShowCategoryModel(
+      {this.author,
+      this.content,
+      this.description,
+      this.title,
+      this.url,
+      this.urlToImage});
 }

@@ -23,9 +23,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<CategoryModel> categories = [];
-  List<sliderModel> sliders = [];
+  List<SliderModel> sliders = [];
   List<ArticleModel> articles = [];
-  bool _loading = true, loading2 = true;
+  bool _loading = true;
+  bool loading2 = true;
 
   int activeIndex = 0;
   @override
@@ -58,14 +59,17 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Row(
+        title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               "CP",
-              style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1,
+                  color: Colors.black.withOpacity(0.7)),
             ),
-            Text(
+            const Text(
               "News",
               style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
             )
@@ -106,6 +110,8 @@ class _HomeState extends State<Home> {
                           "Breaking News!",
                           style: TextStyle(
                               color: Colors.black,
+                              fontStyle: FontStyle.italic,
+                              fontFamily: 'LibreBaskerville',
                               fontWeight: FontWeight.bold,
                               fontSize: 18.0),
                         ),
@@ -115,7 +121,7 @@ class _HomeState extends State<Home> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        AllNews(news: "Breaking")));
+                                        const AllNews(news: "Breaking")));
                           },
                           child: const Text(
                             "View All",
@@ -144,6 +150,7 @@ class _HomeState extends State<Home> {
                           },
                           options: CarouselOptions(
                               height: 250,
+                              // viewportFraction: 1,
                               autoPlay: true,
                               enlargeCenterPage: true,
                               enlargeStrategy: CenterPageEnlargeStrategy.height,
@@ -168,6 +175,8 @@ class _HomeState extends State<Home> {
                           "Trending News!",
                           style: TextStyle(
                               color: Colors.black,
+                              fontStyle: FontStyle.italic,
+                              fontFamily: 'LibreBaskerville',
                               fontWeight: FontWeight.bold,
                               fontSize: 18.0),
                         ),
@@ -177,7 +186,7 @@ class _HomeState extends State<Home> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        AllNews(news: "Trending")));
+                                        const AllNews(news: "Trending")));
                           },
                           child: const Text(
                             "View All",
@@ -250,8 +259,19 @@ class _HomeState extends State<Home> {
   Widget buildIndicator() => AnimatedSmoothIndicator(
         activeIndex: activeIndex,
         count: 5,
-        effect: const SlideEffect(
-            dotWidth: 15, dotHeight: 15, activeDotColor: Colors.blue),
+        effect: ExpandingDotsEffect(
+            dotWidth: 15,
+            dotHeight: 15,
+            radius: 10,
+            spacing: 5,
+            dotColor: Colors.black.withOpacity(0.5),
+            expansionFactor: 2.2,
+            activeDotColor: Colors.blue), // effect: const JumpingDotEffect(
+        //     dotWidth: 15, dotHeight: 15, activeDotColor: Colors.blue),
+        // effect: const WormEffect(
+        //     dotWidth: 15, dotHeight: 15, activeDotColor: Colors.blue),
+        // effect: const SlideEffect(
+        //     dotWidth: 15, dotHeight: 15, activeDotColor: Colors.blue),
       );
 }
 
@@ -350,34 +370,36 @@ class BlogTile extends StatelessWidget {
                   const SizedBox(
                     width: 8.0,
                   ),
-                  Column(
-                    children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 1.7,
-                        child: Text(
-                          title,
-                          maxLines: 2,
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 17.0),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 1.7,
+                          child: Text(
+                            title,
+                            maxLines: 2,
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 17.0),
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 7.0,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 1.7,
-                        child: Text(
-                          desc,
-                          maxLines: 3,
-                          style: const TextStyle(
-                              color: Colors.black54,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15.0),
+                        const SizedBox(
+                          height: 7.0,
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 1.7,
+                          child: Text(
+                            desc,
+                            maxLines: 3,
+                            style: const TextStyle(
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 15.0),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

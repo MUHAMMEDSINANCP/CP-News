@@ -1,5 +1,4 @@
-class sliderModel{
-
+class SliderModel {
   String? author;
   String? title;
   String? description;
@@ -7,5 +6,11 @@ class sliderModel{
   String? urlToImage;
   String? content;
 
-  sliderModel({this.author, this.content, this.description, this.title, this.url, this.urlToImage});
+  SliderModel(
+      {this.author,
+      this.content,
+      this.description,
+      this.title,
+      this.url,
+      this.urlToImage});
 }
