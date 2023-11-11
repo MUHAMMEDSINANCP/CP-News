@@ -141,24 +141,34 @@ class _HomeState extends State<Home> {
                   ),
                   loading2
                       ? const Center(child: CircularProgressIndicator())
-                      : CarouselSlider.builder(
-                          itemCount: 5,
-                          itemBuilder: (context, index, realIndex) {
-                            String? res = sliders[index].urlToImage;
-                            String? res1 = sliders[index].title;
-                            return buildImage(res!, index, res1!);
+                      : GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const AllNews(news: "Breaking")));
                           },
-                          options: CarouselOptions(
-                              height: 250,
-                              // viewportFraction: 1,
-                              autoPlay: true,
-                              enlargeCenterPage: true,
-                              enlargeStrategy: CenterPageEnlargeStrategy.height,
-                              onPageChanged: (index, reason) {
-                                setState(() {
-                                  activeIndex = index;
-                                });
-                              })),
+                          child: CarouselSlider.builder(
+                              itemCount: 5,
+                              itemBuilder: (context, index, realIndex) {
+                                String? res = sliders[index].urlToImage;
+                                String? res1 = sliders[index].title;
+                                return buildImage(res!, index, res1!);
+                              },
+                              options: CarouselOptions(
+                                  height: 250,
+                                  // viewportFraction: 1,
+                                  autoPlay: true,
+                                  enlargeCenterPage: true,
+                                  enlargeStrategy:
+                                      CenterPageEnlargeStrategy.height,
+                                  onPageChanged: (index, reason) {
+                                    setState(() {
+                                      activeIndex = index;
+                                    });
+                                  })),
+                        ),
                   const SizedBox(
                     height: 30.0,
                   ),
