@@ -1,6 +1,6 @@
 ## CP News
 
-CP News offers a platform to stay updated with global news, powered by the News API for comprehensive coverage. Features a clean UI, clean architecture, and:
+CP News offers a platform to stay updated with global news, powered by the News API for comprehensive coverage. Features a clean UI, clean architecture.
 
 ### Key Features:
 Top Trending & Hot News: Access to the latest top trending and hot news articles.
