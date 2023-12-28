@@ -1,16 +1,15 @@
-# cp_news
+## CP News
 
-A new Flutter project.
+CP News offers a platform to stay updated with global news, powered by the News API for comprehensive coverage. Features a clean UI, clean architecture, and:
 
-## Getting Started
+### Key Features:
+Top Trending & Hot News: Access to the latest top trending and hot news articles.
+Full News: Watch detailed news coverage with resources.
+Categories: Sections for business, sports, technology, and more.
+Personalization: Tailor news based on user interests.
+Technologies Used: Clean architecture and Flutter state management.
+### Usage:
+CP News ensures a seamless and personalized news browsing experience, allowing users to explore, read, and watch news stories across various categories, including top trending and hot news articles.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Feedback:
+For any suggestions or feedback, please contact us at cpmuhammedsinan@gmail.com. Your inputs are valuable for enhancing CP News.
