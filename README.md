@@ -5,7 +5,7 @@ CP News offers a platform to stay updated with global news, powered by the News 
 ### Key Features :
 
 Top Trending & Hot News : Access to the latest top trending and hot news articles.
-
+ 
 Full News : Watch detailed news coverage with resources.
 
 Categories : Sections for business, sports, technology, and more.
